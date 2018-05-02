@@ -770,7 +770,7 @@ public class CloudBigtableIO {
       Configuration config = source.getConfiguration().toHBaseConfig();
 
       // This will use cached data channels under the covers.
-      session = new BigtableSession(BigtableOptionsFactory.fromConfiguration(config));
+      session = new BigtableSession(BigtableOptionsFactory.fromConfiguration(config).toBuilder());
       scanner = session.getDataClient().readFlatRows(source.getConfiguration().getRequest());
     }
 

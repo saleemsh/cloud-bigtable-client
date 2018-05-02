@@ -32,7 +32,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     TestAppend.class,
-    TestBasicOps.class,
+    //TestBasicOps.class,
     TestBatch.class,
     TestBufferedMutator.class,
     TestCheckAndMutate.class,

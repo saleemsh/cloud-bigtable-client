@@ -30,6 +30,7 @@ public class CloudBigtableServiceImpl implements CloudBigtableService {
   @Override
   public List<SampleRowKeysResponse> getSampleRowKeys(CloudBigtableTableConfiguration config)
       throws IOException {
+    //BigtableOptions.Builder opts = BigtableOptions.Builder()
     BigtableOptions bigtableOptions = config.toBigtableOptions();
     try (BigtableSession session = new BigtableSession(bigtableOptions)) {
       BigtableTableName tableName =

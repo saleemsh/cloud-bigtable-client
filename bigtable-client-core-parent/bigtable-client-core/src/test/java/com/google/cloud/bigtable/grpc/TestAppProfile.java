@@ -75,7 +75,7 @@ public class TestAppProfile {
     server.start();
 
 
-    BigtableOptions opts = new BigtableOptions.Builder()
+    BigtableOptions.Builder opts = BigtableOptions.Builder()
         .setDataHost("localhost")
         .setAdminHost("locahost")
         .setPort(port)
@@ -83,15 +83,13 @@ public class TestAppProfile {
         .setInstanceId("fake-instance")
         .setUserAgent("fake-agent")
         .setUsePlaintextNegotiation(true)
-        .setCredentialOptions(CredentialOptions.nullCredential())
-        .build();
+        .setCredentialOptions(CredentialOptions.nullCredential());
+        //.build();
 
     defaultSession = new BigtableSession(opts);
 
     profileSession = new BigtableSession(
-        opts.toBuilder()
-        .setAppProfileId("my-app-profile")
-        .build()
+        opts.setAppProfileId("my-app-profile")
     );
   }
 
